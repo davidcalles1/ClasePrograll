@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EMPLEADOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'EMPLEADO.dbo.Tbl_empleado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Tbl_empleado">
+    <Key>
+      <PropertyRef Name="Id_empleado" />
+    </Key>
+    <Property Name="Id_empleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Empl_nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Empl_apellido" Type="varchar" MaxLength="50" />
+    <Property Name="Empl_DUI" Type="varchar" MaxLength="50" />
+    <Property Name="Empl_dirreccion" Type="varchar" MaxLength="50" />
+    <Property Name="Empl_tel" Type="varchar" MaxLength="50" />
+    <Property Name="Empl_email" Type="varchar" MaxLength="50" />
+    <Property Name="Empl_cargo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="EMPLEADOModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_empleado" EntityType="Self.Tbl_empleado" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Tbl_empleado].[Id_empleado] AS [Id_empleado], 
+    [Tbl_empleado].[Empl_nombre] AS [Empl_nombre], 
+    [Tbl_empleado].[Empl_apellido] AS [Empl_apellido], 
+    [Tbl_empleado].[Empl_DUI] AS [Empl_DUI], 
+    [Tbl_empleado].[Empl_dirreccion] AS [Empl_dirreccion], 
+    [Tbl_empleado].[Empl_tel] AS [Empl_tel], 
+    [Tbl_empleado].[Empl_email] AS [Empl_email], 
+    [Tbl_empleado].[Empl_cargo] AS [Empl_cargo]
+    FROM [dbo].[Tbl_empleado] AS [Tbl_empleado]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

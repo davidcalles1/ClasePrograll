@@ -1,0 +1,40 @@
+﻿@model List<CLASE02.Models.Tbl_empleado>
+@{
+    ViewBag.Title = "Empleado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered" >
+    <thead>
+        ID
+    </thead>
+
+    <thead>
+        Nombre
+    </thead>
+
+    <thead>
+        DIreccion
+    </thead>
+
+    <thead>
+        Acciones
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Id_empleado</td>
+            <td>@item.Empl_nombre</td>
+            <td>@item.Empl_dirreccion</td>
+            <td>
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id_empleado }, new { @class = "btn btn.danger" })
+                @Html.ActionLink("Editar", "Registro", new { id = item.Id_empleado }, new { @class = "btn btn.danger" })
+                    </td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+

@@ -1,0 +1,43 @@
+﻿@model List<CLASE02.Models.ClsPersona>
+@{
+    ViewBag.Title = "Desscripcion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+// para hacer una peticion del front end hacia el back end
+// el beginForm es para tanto html como el servidor entienda que nosotros vamos inicializar un
+formulario y que le vamos a estar enviando parametros o variables para en back end
+@using (Html.BeginForm("Descripcion", "persona", FormMethod.Get))
+{
+    <label>Agrega tu nombre</label>
+    <input type="text" name="variable" />
+    <input type="submit" />
+}
+
+
+<h1>@ViewBag.variabledinamica</h1>
+
+<table class="table table-bordered">
+    <thead>
+        ID
+    </thead>
+    <thead>
+        ID
+    </thead>
+
+    <thead>
+        NOMBRE
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.nombre</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+

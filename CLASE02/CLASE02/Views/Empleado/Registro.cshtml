@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Registro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewBag.id</h1>
+
+@using (Html.BeginForm("save", "Empleado", FormMethod.Post))
+{
+    <label>ID</label>
+    <br>
+    <input  type="text" name="id" value="@ViewBag.id"/>
+    <br>
+    <label for="nombre">Nombre de empleado</label>
+    <br>
+    <input type="text" name="nombre" required placeholder="Escribe tu nombre" value="@ViewBag.nombre" >
+    <br>
+    <label for="apellido">Apellido de empleado</label>
+    <br>
+    <input type="text" name="apellido" required placeholder="Escribe tu apellido">
+    <br>
+    <label for="dui">DUI</label>
+    <br>
+    <input type="number" name="dui" required placeholder="Escribe tu dui">
+    <br>
+    <label for="direccion">Direccion</label>
+    <br>
+    <input type="text" name="direccion" required placeholder="Escribe tu direccion">
+    <br>
+    <label for="telefono">TELEFONO</label>
+    <br>
+    <input type="tel" name="telefono" required placeholder="Escribe tu telefono">
+    <br>
+    <label for="correo">CORREO</label>
+    <br>
+    <input type="email" name="correo" required placeholder="Escribe  tu correo ">
+    <br>
+    <label for="cargo">Cargo</label>
+    <br>
+    <input type="text" name="cargo" required placeholder="Escribe tu cargo">
+    <br>
+
+    <input type="submit">
+
+}
+
+
